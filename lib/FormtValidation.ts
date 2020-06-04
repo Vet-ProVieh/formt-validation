@@ -1,13 +1,17 @@
-import { BulmaDecorator } from './decorators/bulma';
+import {BulmaDecorator} from './decorators/bulma';
 
 const notAcceptedInputTypes = ['reset', 'button', 'submit'];
 
+/**
+ * Facade for Form-Validation.
+ */
 export class FormtValidation {
   /**
      * Is a Input Element accepted?
      * @param {HTMLInputElement} element
+     * @return {boolean}
      */
-  static isAcceptedInputType(element: HTMLInputElement) {
+  static isAcceptedInputType(element: HTMLInputElement): boolean {
     return element.tagName == 'INPUT' &&
       notAcceptedInputTypes.findIndex((t) => t === element.type) == -1;
   }
@@ -16,6 +20,7 @@ export class FormtValidation {
   /**
      * Validation of Form
      * @param {HTMLFormElement} form
+     * @return {boolean}
      */
   validateForm(form: HTMLFormElement) {
     const formValid = form.checkValidity();
@@ -28,8 +33,9 @@ export class FormtValidation {
   }
 
   /**
-     *
+     * Validation of an InputElement
      * @param {HTMLInputElement} element
+     * @return {boolean}
      */
   validateElement(element: HTMLInputElement) {
     if (FormtValidation.isAcceptedInputType(element)) {

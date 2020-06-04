@@ -1,3 +1,6 @@
+/**
+ * Decorator for CSS-Framework bulma.io
+ */
 export class BulmaDecorator {
   /**
      * CSS-ErrorClass
@@ -33,6 +36,7 @@ export class BulmaDecorator {
      * @param {HTMLInputElement} element
      */
   error(element: HTMLInputElement) {
+    this._removeSuccessIfNecessary(element);
     if (!element.classList.contains(BulmaDecorator.ErrorClass)) {
       element.classList.add(BulmaDecorator.ErrorClass);
       this._attachIcon(element);
@@ -89,11 +93,21 @@ export class BulmaDecorator {
   }
 
   /**
+   * Removing Success Class
+   * @param {HTMLInputElement} element
+   */
+  _removeSuccessIfNecessary(element: HTMLInputElement) {
+    if (element.classList.contains(BulmaDecorator.SuccessClass)) {
+      element.classList.remove(BulmaDecorator.SuccessClass);
+    }
+  }
+
+  /**
      * Removing Icon
      * @param {HTMLInputElement} element
      */
   _removeErrorIcon(element: HTMLInputElement) {
-    let parent: HTMLElement = element.parentElement as HTMLElement;
+    const parent: HTMLElement = element.parentElement as HTMLElement;
 
     parent.classList.remove('has-icons-right');
     const span: HTMLSpanElement = parent.lastChild as HTMLSpanElement;
@@ -108,10 +122,11 @@ export class BulmaDecorator {
      */
   _removeHelpText(element: HTMLInputElement) {
     if (element.parentElement && element.parentElement.parentElement) {
-      const paragraph = element.parentElement.parentElement.lastChild as HTMLElement;
+      const parentParent = element.parentElement.parentElement;
+      const paragraph = parentParent.lastChild as HTMLElement;
 
       if (paragraph.tagName == 'P') {
-        element.parentElement.parentElement.removeChild(paragraph);
+        parentParent.removeChild(paragraph);
       }
     }
   }
