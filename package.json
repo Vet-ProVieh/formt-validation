@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Vanilla JS Form Validation with Pluginable CSS-Frameworks. Builtin Bulma.",
   "main": "dist/formt-validation.js",
+  "types": "dist/formt-validation.d.ts",
   "keywords": [
     "vanilla-js",
     "bulma",
@@ -10,7 +11,7 @@
     "validation"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c; tsc -d dist/formt-validation.js --emitDeclarationOnly --allowJs",
     "test": "jest --colors --coverage test",
     "lint": "eslint . --ext .ts --fix"
   },
