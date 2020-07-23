@@ -12,7 +12,7 @@ export class FormtValidation {
      * @return {boolean}
      */
   static isAcceptedInputType(element: HTMLInputElement): boolean {
-    return element.tagName == 'INPUT' &&
+    return element.tagName == 'TEXTAREA' || element.tagName == 'INPUT' &&
       notAcceptedInputTypes.findIndex((t) => t === element.type) == -1;
   }
 
