@@ -6,13 +6,15 @@ const notAcceptedInputTypes = ['reset', 'button', 'submit'];
  * Facade for Form-Validation.
  */
 export class FormtValidation {
+
+  
   /**
      * Is a Input Element accepted?
      * @param {HTMLInputElement} element
      * @return {boolean}
      */
   static isAcceptedInputType(element: HTMLInputElement): boolean {
-    return element.tagName == 'TEXTAREA' || element.tagName == 'INPUT' &&
+    return (element.tagName == 'TEXTAREA' || element.tagName == 'INPUT' || element.tagName.includes("SELECT")) &&
       notAcceptedInputTypes.findIndex((t) => t === element.type) == -1;
   }
 
