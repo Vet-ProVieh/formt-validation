@@ -1,5 +1,5 @@
 {
-  "name": "@tomuench/formt-validation",
+  "name": "@vetprovieh/formt-validation",
   "version": "0.0.1",
   "description": "Vanilla JS Form Validation with Pluginable CSS-Frameworks. Builtin Bulma.",
   "main": "dist/formt-validation.js",
