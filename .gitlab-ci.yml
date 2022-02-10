@@ -35,4 +35,4 @@ publish:
     - echo "Creating NPM-RC"
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
   script: 
-    - npm publish
+    - npm publish --access public
