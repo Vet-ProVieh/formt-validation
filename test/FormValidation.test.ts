@@ -67,6 +67,21 @@ describe("validateElement", () => {
         return input;
     }
 
+    function buildButtonElement(){
+        let button = document.createElement("input");
+        button.type = "button"
+        return button
+    }
+
+    test('do not style button', () => {
+        const element = buildButtonElement();
+
+        expect(formt.validateElement(element)).toBe(false);
+
+        expect(element.classList.contains(BulmaDecorator.SuccessClass)).toBe(false);
+        expect(element.classList.contains(BulmaDecorator.ErrorClass)).toBe(false);
+    });
+
     test("test valid element style", () => {
         const element: HTMLInputElement = buildRequiredElement();    
         element.value ="Test";

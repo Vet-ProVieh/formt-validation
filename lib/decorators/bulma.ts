@@ -1,7 +1,7 @@
 /**
  * Decorator for CSS-Framework bulma.io
  */
-export class BulmaDecorator {
+export class BulmaDecorator implements IDecorator {
   /**
      * CSS-ErrorClass
      * @return {string}

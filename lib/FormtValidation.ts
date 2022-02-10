@@ -6,15 +6,26 @@ const notAcceptedInputTypes = ['reset', 'button', 'submit'];
  * Facade for Form-Validation.
  */
 export class FormtValidation {
+  private static CHECKABLE_TAGS = ['TEXTAREA', 'SELECT', 'INPUT'];
 
-  
+
+  private _decorator : IDecorator;
+
+  /**
+   * DefaultContructor
+   * @param {IDecorator} decorator
+   */
+  public constructor(decorator: IDecorator = new BulmaDecorator()) {
+    this._decorator = decorator;
+  }
+
   /**
      * Is a Input Element accepted?
      * @param {HTMLInputElement} element
      * @return {boolean}
      */
   static isAcceptedInputType(element: HTMLInputElement): boolean {
-    return (element.tagName == 'TEXTAREA' || element.tagName == 'INPUT' || element.tagName.includes("SELECT")) &&
+    return FormtValidation.CHECKABLE_TAGS.includes(element.tagName) &&
       notAcceptedInputTypes.findIndex((t) => t === element.type) == -1;
   }
 
@@ -54,11 +65,10 @@ export class FormtValidation {
      * @private
      */
   _styleElement(element: HTMLInputElement) {
-    const decorator = new BulmaDecorator();
     if (element.reportValidity()) {
-      decorator.success(element);
+      this._decorator.success(element);
     } else {
-      decorator.error(element);
+      this._decorator.error(element);
     }
   }
 }

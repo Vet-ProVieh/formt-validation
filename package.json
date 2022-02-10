@@ -15,8 +15,8 @@
     "test": "jest --colors --coverage test",
     "lint": "eslint . --ext .ts --fix"
   },
-  "author": "Tobias Münch",
-  "license": "MIT",
+  "author": "Hochschule Osnabrück",
+  "license": "Apache License 2.0",
   "devDependencies": {
     "@babel/core": "^7.10.1",
     "@babel/preset-env": "^7.10.1",

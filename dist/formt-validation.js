@@ -129,7 +129,7 @@ class FormtValidation {
        * @return {boolean}
        */
     static isAcceptedInputType(element) {
-        return element.tagName == 'TEXTAREA' || element.tagName == 'INPUT' || element.tagName.includes("SELECT") &&
+        return (element.tagName == 'TEXTAREA' || element.tagName == 'SELECT' || element.tagName.includes("INPUT")) &&
             notAcceptedInputTypes.findIndex((t) => t === element.type) == -1;
     }
     /**
