@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Vanilla JS Form Validation with Pluginable CSS-Frameworks. Builtin Bulma.",
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/esm/index.js", 
   "types": "dist/index.d.ts",
   "keywords": [
     "vanilla-js",
