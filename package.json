@@ -12,7 +12,7 @@
     "validation"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c ",
     "test": "jest --colors --coverage test",
     "lint": "eslint . --ext .ts --fix"
   },
